@@ -5,7 +5,7 @@ window.onload = function() {
 
     var application = new Vue({
       //mounted element
-        el: '#pageContainer',
+        el: '#app',
         data: {
             toDoItems: [{}],
             task: {},

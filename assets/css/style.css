@@ -1,26 +1,20 @@
-.navbar {
-  flex-direction: inherit !important;
-  padding: 0 0 !important;
-  background-color: #336D41; }
-  .navbar .navbar-nav {
-    flex-direction: inherit !important;
-    background-color: #336D41; }
-    .navbar .navbar-nav a {
-      font-size: 18px;
-      color: #FFF; }
-
-.nav-item i {
-  font-size: 26px;
-  color: #FFF; }
-
-header .jumbotron {
-  background-color: #336D41; }
-
-.display-4 {
-  color: #FCFCFC; }
-
 body {
-  background-color: #ECECEC; }
+  background-color: #1F2937;
+  font-family: Fira Sans, sans-serif; }
+
+.header {
+  background-color: #111827;
+  padding: 1rem 0 1rem 0;
+  text-align: center;
+  border-bottom: 4px solid #34D399; }
+  .header h1 {
+    font-size: 48px;
+    font-weight: 550;
+    margin: 0;
+    color: white; }
+
+.task-container {
+  margin-top: 4rem; }
 
 #pageContainer {
   max-width: 700px;
@@ -30,7 +24,7 @@ body {
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.15); }
   #pageContainer button {
     cursor: pointer;
-    background-color: #336D41;
+    background-color: #34D399;
     color: FCFCFC;
     border: none; }
 

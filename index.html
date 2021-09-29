@@ -5,17 +5,56 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+        <!-- Bootstrap for styling and grid -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  		  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
             
         <!-- Using vue via CDN for simplicity -->
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+        <!-- Axios for ajax calls to PHP backend -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"></script>
         <script src="src/main.js"></script>
 		<title>TODO List Application</title>
     </head>
-<body id="app">
+<body>
+  <section class="body-content">
+    <div id="app">
+      <section class="header-section">
+        <div class="header">
+          <h1>Mighty Tasks</h1>
+        </div>
+      </section>
+      <section class="task-section">
+        <div class="task-container container">
+          <div class="task-form-container">
+            <form v-on:submit.prevent="greet" class="row">
+              <div class="col-md-10">
+                <input v-model="task.name" type="text" class="form-control" id="product" placeholder="Insert items...">
+                </div>
+                <div class="col-md-2">
+                <button type="submit" class="btn btn-primary" id="addproduct">Add</button>
+                </div>
+            </form>
+          </div>
+          <div class="task-list row">
+            <ul id="todoList" class="list-group col">
+               <li class="list-group-item" v-for="(item, index) in allData" :key="index">
+                <p v-for="(el, key) in item" :key="key">{{key}}: {{ el }}</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+  
+
 <!-- 
   <div id="pageContainer" class="container"></div> -->
      <!-- Loop through toDoItems array -->
