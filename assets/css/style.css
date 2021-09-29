@@ -1,0 +1,43 @@
+.navbar {
+  flex-direction: inherit !important;
+  padding: 0 0 !important;
+  background-color: #336D41; }
+  .navbar .navbar-nav {
+    flex-direction: inherit !important;
+    background-color: #336D41; }
+    .navbar .navbar-nav a {
+      font-size: 18px;
+      color: #FFF; }
+
+.nav-item i {
+  font-size: 26px;
+  color: #FFF; }
+
+header .jumbotron {
+  background-color: #336D41; }
+
+.display-4 {
+  color: #FCFCFC; }
+
+body {
+  background-color: #ECECEC; }
+
+#pageContainer {
+  max-width: 700px;
+  background-color: #FFF;
+  padding: 15px 15px 25px 25px;
+  margin-top: 10px;
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.15); }
+  #pageContainer button {
+    cursor: pointer;
+    background-color: #336D41;
+    color: FCFCFC;
+    border: none; }
+
+#todoList {
+  list-style: none;
+  padding: 0px 0px 0px 0px;
+  font-size: 18px; }
+
+.handle {
+  margin-right: 10px; }
