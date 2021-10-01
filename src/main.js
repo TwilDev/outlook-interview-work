@@ -55,8 +55,7 @@ window.onload = function() {
               task_id : e.target.parentElement.id
             }).then(function(response){
               //on success iterate through array of tasks and splice out the object containing the id of the deleted task
-              console.log(response);
-              if (response == 1) {
+              if (response.data == 1) {
                 for (let i=application.allData.length - 1; i >= 0; --i) {
                   if (application.allData[i].id == e.target.parentElement.id) {
                     application.allData.splice(i, 1);
@@ -65,7 +64,12 @@ window.onload = function() {
               }
             });
           }
-        }
+        },
+        testIfChecked: function(e) {
+          let el = e.target.nextElementSibling;
+          el.style.textDecoration = "line-through";
+
+        },
       },
       //on create vue instance fetch all items from DB and show on pageload
       created: function() {

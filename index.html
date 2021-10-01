@@ -40,7 +40,7 @@
           <div class="task-form-container">
             <form v-on:submit.prevent="addNewTask" class="row" id="taskForm">
               <div class="col-md-10">
-                <input v-model="task.task_name" type="text" class="form-control" id="task-input" placeholder="Insert items...">
+                <input v-model="task.task_name" type="text" class="form-control" id="task-input" placeholder="What do you need to do?">
                 </div>
                 <div class="col-md-2">
                 <button type="submit" class="btn btn-primary" id="addproduct">Add</button>
@@ -50,7 +50,8 @@
           <div class="task-list row">
             <ul id="todoList" class="list-group col">
                <li class="list-group-item" v-for="(item, index) in allData" :key="index" v-bind:id="item.id">
-                <p>{{ item.task_name }}</p>
+                <input @click="testIfChecked" type="radio">
+                <p class="task-text">{{ item.task_name }}</p>
                 <i @click="deleteTask" class="fas fa-times"></i> 
               </li>
             </ul>
