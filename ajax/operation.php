@@ -24,10 +24,12 @@ if ($operation->action) {
             break;
         case "add":
             //Call method to add a new task
-            echo $result = $taskObj->addNewTask($operation->task_name);
+            //echo $result = $taskObj->addNewTask($operation->task_name);
+            echo $operation->task_name;
             break;
         case "delete":
             //Call method to delete task
+            echo $result = $taskObj->deleteTask($operation->task_id);
             break;
         default: 
             //if not met
