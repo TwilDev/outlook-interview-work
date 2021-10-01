@@ -15,7 +15,7 @@ class task {
     public function getTasks() {
 
         //Define query and prepare using db
-        $query = "SELECT * FROM test";
+        $query = "SELECT * FROM task";
         $pdo = $this->db->prepare($query);
         //execute and fetch associated values to result 
         $pdo->execute();
@@ -26,8 +26,16 @@ class task {
     }
 
     //method to add new task to the database
-    public function addTask($task) {
+    public function addNewTask($task) {
 
+        //Define query and prepare using db
+        $query = "INSERT into task (task_name) VALUES (:task_name)";
+        //prepare query and bind values to avoid injections
+        $pdo = $this->db->prepare($query);
+        $pdo->bindParam(':task_name', $task);
+        //execute query and return last ID
+        $pdo->execute();
+        return($this->db->lastInsertId());
     }
 
     public function deleteTask($task_id) {

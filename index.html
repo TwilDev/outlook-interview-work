@@ -19,8 +19,13 @@
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
         <!-- Axios for ajax calls to PHP backend -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"></script>
+
+        <!-- Font awesome used for icons over svgs -->
+        <script src="https://kit.fontawesome.com/c42b95b184.js" crossorigin="anonymous"></script>
+
         <script src="src/main.js"></script>
-		<title>TODO List Application</title>
+
+		<title>Mighty Tasks</title>
     </head>
 <body>
   <section class="body-content">
@@ -33,9 +38,9 @@
       <section class="task-section">
         <div class="task-container container">
           <div class="task-form-container">
-            <form v-on:submit.prevent="greet" class="row">
+            <form v-on:submit.prevent="addNewTask" class="row" id="taskForm">
               <div class="col-md-10">
-                <input v-model="task.name" type="text" class="form-control" id="product" placeholder="Insert items...">
+                <input v-model="task.task_name" type="text" class="form-control" id="task-input" placeholder="Insert items...">
                 </div>
                 <div class="col-md-2">
                 <button type="submit" class="btn btn-primary" id="addproduct">Add</button>
@@ -44,8 +49,8 @@
           </div>
           <div class="task-list row">
             <ul id="todoList" class="list-group col">
-               <li class="list-group-item" v-for="(item, index) in allData" :key="index">
-                <p v-for="(el, key) in item" :key="key">{{key}}: {{ el }}</p>
+               <li class="list-group-item" v-for="(item, index) in allData" :key="index" v-bind:id="item.id">
+                <p>{{ item.task_name }}</p>
               </li>
             </ul>
           </div>
