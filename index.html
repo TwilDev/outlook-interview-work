@@ -51,6 +51,7 @@
             <ul id="todoList" class="list-group col">
                <li class="list-group-item" v-for="(item, index) in allData" :key="index" v-bind:id="item.id">
                 <p>{{ item.task_name }}</p>
+                <i @click="deleteTask" class="fas fa-times"></i> 
               </li>
             </ul>
           </div>
@@ -58,28 +59,6 @@
       </section>
     </div>
   </section>
-  
-
-<!-- 
-  <div id="pageContainer" class="container"></div> -->
-     <!-- Loop through toDoItems array -->
-    <!-- <ul id="todoList" class="list-group" v-for="(item, index) in allData" :key="index">
- 
-      <li class="list-group-item" v-for="(el, key) in item" :key="key">{{key}}: {{ el }}</li>
-		</ul> -->
-    <!-- <ul id="todoList" class="list-group">
-      <li class="list-group-item" v-for="(item, index) in allData" :key="index">
-        <p v-for="(el, key) in item" :key="key">{{key}}: {{ el }}</p>
-      </li>
-		</ul>
-    <form v-on:submit.prevent="greet" class="row">
-		  <div class="col-md-10">
-			<input v-model="task.name" type="text" class="form-control" id="product" placeholder="Insert items...">
-		  </div>
-		  <div class="col-md-2">
-			<button type="submit" class="btn btn-primary" id="addproduct">Add</button>
-		  </div>
-    </form> -->
 
 </body>
 </html>

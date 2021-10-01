@@ -44,13 +44,14 @@ window.onload = function() {
             */
           },
           deleteTask: function(e) {
-            //TODO
+            let v = confirm("Are you sure you want to delete this task?");
+            if (v) {
             /*
-              Show alert to confirm that the function should be deleted
               get parent element id as it is shared with the id of the database
               make axios call to delete
               return and remvoe from list or if not add error message
             */
+            }
           }
         },
         //on create vue instance fetch all items from DB and show on pageload
