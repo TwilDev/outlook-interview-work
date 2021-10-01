@@ -50,7 +50,19 @@ window.onload = function() {
               get parent element id as it is shared with the id of the database
               make axios call to delete
               return and remvoe from list or if not add error message
+              
             */
+              axios.post('/outlook-work/ajax/operation.php', {
+                action:'delete',
+                task_id: application.task.task_name
+              }).then(function(response){
+                //create object with database id and task body
+                let addObj = {
+                  id: response.data, task_name: application.task.task_name
+                };
+                //push Obj to allData to display on page
+                application.allData.push(addObj);
+              });
             }
           }
         },
