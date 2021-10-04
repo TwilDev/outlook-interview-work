@@ -38,18 +38,20 @@
       <section class="task-section">
         <div class="task-container container">
           <div class="task-form-container">
-            <form v-on:submit.prevent="addNewTask" class="row" id="taskForm">
-              <div class="col-md-10">
-                <input v-model="task.task_name" type="text" class="form-control" id="task-input" placeholder="What do you need to do?">
-                </div>
-                <div class="col-md-2">
-                <button type="submit" class="btn btn-primary" id="addproduct">Add</button>
-                </div>
+            <form v-on:submit.prevent="addNewTask" id="taskForm">
+              <div class="form-group">
+                <label for="task-input" class="form-head">ADD A NEW TASK</label> 
+                <input v-model="task.task_name" type="text" class="form-control form-control-lg form-text-input" id="task-input" placeholder="What do you need to do?">
+              </div>
+              <div class="form-group text-right">
+                <button type="submit" class="btn btn-primary form-btn" id="addproduct">Add Task</button>
+              </div>
             </form>
           </div>
-          <div class="task-list row">
-            <ul id="todoList" class="list-group col">
-               <li class="list-group-item" v-for="(item, index) in allData" :key="index" v-bind:id="item.id">
+          <div class="task-list row justify-content-md-center">
+            <label for="task-list" class="form-head col-sm-12">Current tasks</label>
+            <ul class="list-group col-sm-12" id="task-list">
+               <li class="task-list-item" v-for="(item, index) in allData" :key="index" v-bind:id="item.id">
                 <input @click="testIfChecked" type="radio">
                 <p class="task-text">{{ item.task_name }}</p>
                 <i @click="deleteTask" class="fas fa-times"></i> 

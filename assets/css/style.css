@@ -1,3 +1,4 @@
+/* Mixins for  */
 body {
   background-color: #1F2937;
   font-family: Fira Sans, sans-serif; }
@@ -14,24 +15,70 @@ body {
     color: white; }
 
 .task-container {
-  margin-top: 4rem; }
-
-#pageContainer {
-  max-width: 700px;
-  background-color: #FFF;
-  padding: 15px 15px 25px 25px;
-  margin-top: 10px;
-  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.15); }
-  #pageContainer button {
-    cursor: pointer;
-    background-color: #34D399;
-    color: FCFCFC;
-    border: none; }
+  margin-top: 4rem;
+  font-weight: bold; }
 
 #todoList {
   list-style: none;
   padding: 0px 0px 0px 0px;
   font-size: 18px; }
 
+.form-head {
+  color: #9CA3AF;
+  font-size: 18px;
+  padding: 0; }
+
+.form-text-input {
+  background-color: #374151;
+  color: white;
+  font-size: 24px;
+  border: none;
+  padding: 2rem 1rem 2rem 1rem;
+  border-radius: 15px; }
+  .form-text-input:focus {
+    background-color: #374151;
+    color: white;
+    font-size: 24px;
+    border: none; }
+
+.form-btn {
+  text-transform: uppercase;
+  font-size: 24px;
+  background-color: #34D399;
+  border: none;
+  border-radius: 15px;
+  padding: .3rem 3rem .3rem 3rem;
+  color: white;
+  font-weight: 600; }
+  .form-btn:hover {
+    background-color: #2beba5 !important; }
+  .form-btn:active {
+    background-color: #2beba5 !important; }
+  .form-btn:focus {
+    background-color: #34D399 !important; }
+
 .handle {
   margin-right: 10px; }
+
+.task-form-container {
+  margin-left: 4rem;
+  margin-right: 4rem; }
+
+.task-list {
+  margin: 4rem 4rem 0rem 4rem; }
+  .task-list li {
+    background-color: #374151;
+    color: white;
+    font-size: 24px;
+    border: none;
+    list-style: none;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-radius: 15px; }
+  .task-list li > * {
+    display: inline; }
+  .task-list i {
+    cursor: pointer;
+    padding: .5rem;
+    color: #EF4444;
+    float: right; }

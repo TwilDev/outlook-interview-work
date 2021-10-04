@@ -1,12 +1,57 @@
 
 $container-bg-color: #FFF;
-$green : #34D399;
+
 $container-shadow: 2px 2px 4px 0px  rgba(0, 0, 0, 0.15);
 
 
 $font-main : Fira Sans, sans-serif;
 $font-title : bold;
 $font-2nd : italic;
+
+$green : #34D399;
+
+
+/* Mixins for  */
+
+@mixin text-area {
+  background-color : #374151;
+  color : white;
+  font-size : 24px;
+  border : none;
+}
+
+
+@mixin list-item {
+  li {
+    @include text-area;
+    list-style : none;
+    margin-bottom : 1.5rem;
+    padding : 1rem;
+    border-radius : 15px;
+  }
+  li > * {
+    display : inline;
+  }
+}
+
+@mixin button {
+  font-size : 24px;
+  background-color : $green;
+  border : none;
+  border-radius: 15px;
+  padding : .3rem 3rem .3rem 3rem;
+  color : white;
+  font-weight : 600;
+  &:hover {
+    background-color : #2beba5!important;
+  }
+  &:active {
+    background-color : #2beba5!important;
+  }
+  &:focus {
+    background-color : $green!important;
+  }
+}
 
 body {
   background-color : #1F2937;
@@ -29,22 +74,7 @@ body {
 
 .task-container {
   margin-top : 4rem;
-  
-}
-
-#pageContainer {
-            max-width : 700px;
-            background-color : $container-bg-color;
-            padding : 15px 15px 25px 25px;
-            margin-top : 10px;
-            box-shadow : $container-shadow;
-            
-              button {
-                  cursor : pointer;
-                  background-color : $green;
-                  color : FCFCFC;
-                  border : none;
-            }
+  font-weight : bold;
 }
 
 #todoList {
@@ -53,6 +83,43 @@ body {
   font-size : 18px;
 }
 
+.form-head {
+  color : #9CA3AF;
+  font-size : 18px;
+  padding : 0;
+}
+
+.form-text-input {
+  @include text-area;
+  padding : 2rem 1rem 2rem 1rem;
+  border-radius: 15px;
+  &:focus {
+    @include text-area;
+  }  
+}
+
+.form-btn {
+  text-transform : uppercase;
+  @include button;
+}
+
 .handle {
   margin-right : 10px;
+}
+
+.task-form-container {
+  margin-left : 4rem;
+  margin-right : 4rem;
+}
+
+.task-list {
+  margin : 4rem 4rem 0rem 4rem;
+
+  @include list-item;
+  i {
+    cursor : pointer;
+    padding : .5rem;
+    color : #EF4444;
+    float : right;
+  }
 }
