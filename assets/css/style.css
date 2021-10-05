@@ -1,4 +1,5 @@
 /* Mixins for reusable elements should the application be extended */
+/* --- Body & Header Styling --- */
 body {
   background-color: #1F2937;
   font-family: Fira Sans, sans-serif; }
@@ -14,6 +15,7 @@ body {
     margin: 0;
     color: white; }
 
+/* --- Task Input form styling --- */
 .task-container {
   margin-top: 4rem;
   font-weight: bold; }
@@ -70,6 +72,7 @@ body {
 .handle {
   margin-right: 10px; }
 
+/* --- Custom Radio Button Styling --- */
 .radio-container {
   display: block;
   position: relative;
@@ -100,13 +103,13 @@ body {
   width: 25px;
   background-color: #374151;
   border-radius: 50%;
-  border: solid 3px #34D399;
-  transition: 0.3s; }
+  border: solid 3px #34D399; }
   .radio-custom:after {
     content: "";
     position: absolute;
     display: none; }
 
+/* --- Task list styling --- */
 .task-form-container {
   margin-left: 4rem;
   margin-right: 4rem; }
@@ -132,6 +135,16 @@ body {
     padding: .5rem;
     color: #EF4444;
     float: right; }
+
+.task-list-item:hover {
+  background: #5a677c;
+  transition: 0.3s; }
+
+.task-list-item:hover input ~ .radio-custom {
+  background: #5a677c; }
+
+.task-list-item:hover input:checked ~ .radio-custom {
+  background: #34D399; }
 
 /* --- MEDIA QUERIES --- */
 @media screen and (max-width: 768px) {

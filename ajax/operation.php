@@ -18,7 +18,6 @@ if ($operation->action) {
     //determines
     switch ($operation->action) {
         case "init": 
-            //$taskObj = new task($db);
             //Call method to get all tasks and return value
             echo $result = $taskObj->getTasks(); 
             break;

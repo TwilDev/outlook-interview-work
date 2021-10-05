@@ -30,9 +30,7 @@ $green : #34D399;
   li > * {
     display : inline;
   }
-  &:hover {
 
-  }
 }
 
 @mixin button {
@@ -54,6 +52,8 @@ $green : #34D399;
   }
 }
 
+/* --- Body & Header Styling --- */
+
 body {
   background-color : #1F2937;
   font-family : $font-main;
@@ -72,6 +72,8 @@ body {
     color : white;
   }
 }
+
+/* --- Task Input form styling --- */
 
 .task-container {
   margin-top : 4rem;
@@ -113,6 +115,8 @@ body {
   margin-right : 10px;
 }
 
+/* --- Custom Radio Button Styling --- */
+
 .radio-container {
   display : block;
   position : relative;
@@ -149,13 +153,14 @@ body {
   background-color: #374151;
   border-radius: 50%;
   border : solid 3px $green;
-  transition : 0.3s;
   &:after {
     content: "";
     position: absolute;
     display: none;
   }
 }
+
+/* --- Task list styling --- */
 
 .task-form-container {
   margin-left : 4rem;
@@ -174,8 +179,20 @@ body {
   }
 }
 
-/* --- MEDIA QUERIES --- */
+.task-list-item {
+  &:hover {
+    background : #5a677c;
+    transition : 0.3s;
+  }
+  &:hover input ~ .radio-custom {
+    background : #5a677c;
+  }
+  &:hover input:checked ~ .radio-custom {
+    background : $green;
+  }
+}
 
+/* --- MEDIA QUERIES --- */
 
 @media screen and (max-width: 768px) {
 
@@ -186,10 +203,8 @@ body {
   .task-list {
     li {
       font-size : 18px;
-    }
-    
+    } 
   }
-
 }
 
 @media screen and (max-width: 480px) {
