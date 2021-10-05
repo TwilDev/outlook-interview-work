@@ -52,7 +52,7 @@
           <div class="task-list row justify-content-md-center">
             <label for="task-list" class="form-head col-sm-12">Current tasks</label>
             <ul class="list-group col-sm-12" id="task-list">
-               <li class="task-list-item" v-for="(item, index) in allData" :key="index" v-bind:id="item.id">
+               <li class="task-list-item" v-for="(item, index) in allData" :key="index" v-bind:id="item.task_id">
                 <label class="radio-container">
                   <input @click="testIfChecked" type="checkbox" class="radio-input">
                   <span class="radio-custom"></span>

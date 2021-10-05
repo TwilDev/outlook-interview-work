@@ -41,7 +41,7 @@ class task {
     public function deleteTask($task_id) {
 
         //Define query and prepare using db
-        $query = "DELETE FROM task WHERE id = :task_id";
+        $query = "DELETE FROM task WHERE task_id = :task_id";
         $pdo = $this->db->prepare($query);
         $pdo->bindParam(':task_id', $task_id);
         $pdo->execute();

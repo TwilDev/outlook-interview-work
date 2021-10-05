@@ -2,7 +2,7 @@
 
 //db connection details
 $host = '127.0.0.1'; //can also use localhost this is loopback address that I use as a personal  preference
-$dbname = "test";
+$dbname = "outlook-task";
 $user = "root";
 $pass = ""; //root admin password is blank in Xampp
 

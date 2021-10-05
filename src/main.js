@@ -1,5 +1,3 @@
-
-
 //on DOM load create new vue instance
 window.onload = function() {
 
@@ -19,7 +17,6 @@ window.onload = function() {
           }).then(function(response){
             //set retrieved data to allData to be appended to the DOM
             application.allData = response.data;
-            console.log((application.allData));
           });
         },
         //Validates input to ensure that blank data cannot be added to the database
@@ -30,13 +27,11 @@ window.onload = function() {
           //check task_name data if not empty call addNewTask
           if (!application.task.task_name) {
             //display error
-            err.style.display = "block";
             err.innerHTML = "Please enter a task";
           } else {
             //check if error is displayed and remvoe if true
-            if (err.style.display === "block") {
+            if (err.innerHTML !== "") {
               err.innerHTML = "";
-              err.style.display = "none";
             }
             //call add task
             this.addNewTask();
@@ -55,11 +50,10 @@ window.onload = function() {
             };
             //push Obj to allData to display on page
             application.allData.push(addObj);
-            application.task = "";
+            application.task = {};
             //on error
           }).catch(function(err){
             var formErr = document.getElementsByClassName('form-error')[0];
-            formErr.style.display = "block"
             formErr.innerHTML = err.response.data.error;
           });
         },
@@ -68,17 +62,17 @@ window.onload = function() {
           //use a confirm for delete validation
           let v = confirm("Are you sure you want to delete this task?");
           if (v) {
-            console.log(e.target.parentElement.id);
             //if confirmed use axios to call delete operation
             axios.post('/outlook-work/ajax/operation.php', {
               action: 'delete',
               //get the parent id as a reference to the task in the database via event target
               task_id : e.target.parentElement.id
             }).then(function(response){
+              console.log(response.data);
               //on success iterate through array of tasks and splice out the object containing the id of the deleted task
               if (response.data == 1) {
                 for (let i=application.allData.length - 1; i >= 0; --i) {
-                  if (application.allData[i].id == e.target.parentElement.id) {
+                  if (application.allData[i].task_id == e.target.parentElement.id) {
                     application.allData.splice(i, 1);
                   }
                 }
@@ -86,7 +80,6 @@ window.onload = function() {
               //on error 
             }).catch(function(err) {
               var formErr = document.getElementsByClassName('form-error')[0];
-              formErr.style.display = "block"
               formErr.innerHTML = err.response.data.error;
             })
           }

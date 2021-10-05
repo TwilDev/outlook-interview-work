@@ -32,21 +32,27 @@ body {
   background-color: #374151;
   color: white;
   font-size: 24px;
+  font-weight: 500;
   border: none;
   padding: 2rem 1rem 2rem 1rem;
   border-radius: 15px; }
   .form-text-input:focus {
+    box-shadow: 0 0 0 0.2rem #34D399; }
+  .form-text-input:focus {
     background-color: #374151;
     color: white;
     font-size: 24px;
+    font-weight: 500;
     border: none; }
+    .form-text-input:focus:focus {
+      box-shadow: 0 0 0 0.2rem #34D399; }
 
 .form-error {
-  display: none;
   font-size: 20px; }
 
 .form-btn {
   text-transform: uppercase;
+  margin-top: 1rem;
   font-size: 24px;
   background-color: #34D399;
   border: none;
@@ -111,11 +117,14 @@ body {
     background-color: #374151;
     color: white;
     font-size: 24px;
+    font-weight: 500;
     border: none;
     list-style: none;
     margin-bottom: 1.5rem;
     padding: 1rem;
     border-radius: 15px; }
+    .task-list li:focus {
+      box-shadow: 0 0 0 0.2rem #34D399; }
   .task-list li > * {
     display: inline; }
   .task-list i {
@@ -125,20 +134,26 @@ body {
     float: right; }
 
 /* --- MEDIA QUERIES --- */
-@media only screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .header h1 {
     font-size: 40px; }
   .task-list li {
     font-size: 18px; } }
 
-@media only screen and (max-width: 480px) {
+@media screen and (max-width: 480px) {
+  .header h1 {
+    font-size: 36px; }
   .task-form-container {
     margin-left: 0.5rem;
     margin-right: 0.5rem; }
   .task-list {
     margin: 2.5rem 0 0 0; }
     .task-list li {
-      font-size: 16px; }
+      padding: .5rem 1rem; }
+    .task-list label {
+      vertical-align: -webkit-baseline-middle; }
+    .task-list p {
+      vertical-align: -webkit-baseline-middle; }
   .radio-container {
     font-size: 16px;
     padding-left: 30px; }
@@ -148,5 +163,8 @@ body {
     border: solid 2px #34D399; }
   .form-text-input {
     font-size: 18px; }
+    .form-text-input:focus {
+      font-size: 18px; }
   .form-btn {
-    font-size: 20px; } }
+    font-size: 20px;
+    margin: 0; } }
