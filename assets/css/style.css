@@ -1,4 +1,4 @@
-/* Mixins for  */
+/* Mixins for reusable elements should the application be extended */
 body {
   background-color: #1F2937;
   font-family: Fira Sans, sans-serif; }
@@ -41,6 +41,10 @@ body {
     font-size: 24px;
     border: none; }
 
+.form-error {
+  display: none;
+  font-size: 20px; }
+
 .form-btn {
   text-transform: uppercase;
   font-size: 24px;
@@ -59,6 +63,43 @@ body {
 
 .handle {
   margin-right: 10px; }
+
+.radio-container {
+  display: block;
+  position: relative;
+  padding-left: 40px;
+  cursor: pointer;
+  font-size: 22px; }
+  .radio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer; }
+  .radio-container:hover input ~ .radio-custom {
+    background-color: #34D399; }
+  .radio-container input:checked ~ .radio-custom {
+    background-color: #34D399; }
+  .radio-container .radio-custom:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #374151; }
+
+.radio-custom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #374151;
+  border-radius: 50%;
+  border: solid 3px #34D399;
+  transition: 0.3s; }
+  .radio-custom:after {
+    content: "";
+    position: absolute;
+    display: none; }
 
 .task-form-container {
   margin-left: 4rem;
@@ -82,3 +123,30 @@ body {
     padding: .5rem;
     color: #EF4444;
     float: right; }
+
+/* --- MEDIA QUERIES --- */
+@media only screen and (max-width: 768px) {
+  .header h1 {
+    font-size: 40px; }
+  .task-list li {
+    font-size: 18px; } }
+
+@media only screen and (max-width: 480px) {
+  .task-form-container {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem; }
+  .task-list {
+    margin: 2.5rem 0 0 0; }
+    .task-list li {
+      font-size: 16px; }
+  .radio-container {
+    font-size: 16px;
+    padding-left: 30px; }
+  .radio-custom {
+    height: 18px;
+    width: 18px;
+    border: solid 2px #34D399; }
+  .form-text-input {
+    font-size: 18px; }
+  .form-btn {
+    font-size: 20px; } }

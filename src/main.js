@@ -22,10 +22,28 @@ window.onload = function() {
             console.log((application.allData));
           });
         },
+        //Validates input to ensure that blank data cannot be added to the database
+        validateTaskInput: function(e) {
+          //get error element 
+          const err = document.getElementsByClassName('form-error')[0];
+
+          //check task_name data if not empty call addNewTask
+          if (!application.task.task_name) {
+            //display error
+            err.style.display = "block";
+            err.innerHTML = "Please enter a task";
+          } else {
+            //check if error is displayed and remvoe if true
+            if (err.style.display === "block") {
+              err.innerHTML = "";
+              err.style.display = "none";
+            }
+            //call add task
+            this.addNewTask();
+          }
+        },
         //takes a new task and adds it to the database and displays on page
         addNewTask: function(e) {
-          //Reset form and disable button when inputting
-          document.getElementById('task-input').value = "";
           //use axios for async call to add operation
           axios.post('/outlook-work/ajax/operation.php', {
             action:'add',
@@ -37,12 +55,15 @@ window.onload = function() {
             };
             //push Obj to allData to display on page
             application.allData.push(addObj);
+            application.task = "";
+            //on error
+          }).catch(function(err){
+            var formErr = document.getElementsByClassName('form-error')[0];
+            formErr.style.display = "block"
+            formErr.innerHTML = err.response.data.error;
           });
-          //TODO  
-          /*
-            if returning unsuccessfully return an error message
-          */
         },
+        //handles deleting tasks from the database and removes them from the UI
         deleteTask: function(e) {
           //use a confirm for delete validation
           let v = confirm("Are you sure you want to delete this task?");
@@ -62,13 +83,36 @@ window.onload = function() {
                   }
                 }
               }
-            });
+              //on error 
+            }).catch(function(err) {
+              var formErr = document.getElementsByClassName('form-error')[0];
+              formErr.style.display = "block"
+              formErr.innerHTML = err.response.data.error;
+            })
           }
         },
+        //Changes the next of the task to be crossed out when checking radio button
         testIfChecked: function(e) {
-          let el = e.target.nextElementSibling;
-          el.style.textDecoration = "line-through";
-
+          // get the parent node of the entire checkbox
+          var el = e.target.parentNode;
+          //define the target sibling
+          var targetSibling;
+          //while there is a valid element traverse dom assign the first element of type task-text to targetSibling
+          while (el) {
+            if (el.matches('.task-text')) {
+              targetSibling = el;
+              break;
+            }
+            //mark the active element as the next sibling
+            el = el.nextElementSibling;
+          }
+          // Edit the style of the next paragraph tag and add style line-through
+          if (targetSibling.style.textDecoration === "line-through") {
+            targetSibling.style.textDecoration = "none";
+          } else {
+            targetSibling.style.textDecoration = "line-through";
+          }
+          
         },
       },
       //on create vue instance fetch all items from DB and show on pageload
