@@ -21,11 +21,15 @@ hashed passwords utilising built in PHP functions, with current systems allowing
 
 An example of this hashing code can be seen in the example below:
 
+<h3>Example PHP hashing script</h3>
+
 ![PHP password hashing code](https://github.com/TwilDev/outlook-interview-work/blob/master/assets/images/example_pass.jpg?raw=true)
 
 The backend was hosted individually utilising XAMPP, the database file can be found in the root directory called outlook-task.sql 
 
 To quickly host the application this file can be imported via XAMPP or alternative web server supporting PHP and MySQL. If the database is not being hosted on the local machine
 or your default username/password has been manually configured; the connection information can be altered in the following PHP file (./includes/db.php) shown below:
+
+<h3>Db connection script</h3>
 
 ![dbconn code](https://github.com/TwilDev/outlook-interview-work/blob/master/assets/images/dbconn.jpg?raw=true)
